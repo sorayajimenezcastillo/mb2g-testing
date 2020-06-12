@@ -6,7 +6,7 @@
 
     <groupId>guru.springframework</groupId>
     <artifactId>mb2g-testing</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,4 +15,31 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+    <repositories>
+        <repository><!-- Enables using of the nexus artifacts in this project-->
+            <id>nexus-snapshot</id>
+            <url>http://localhost:8081/repository/nexus-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository><!-- Enables using of the nexus artifacts in this project-->
+            <id>nexus-release</id>
+            <url>http://localhost:8081/repository/nexus-release/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository> <!-- Enables uploading of the artifacts of this project to nexus-->
+            <id>nexus-snapshot</id>
+            <url>http://localhost:8081/repository/nexus-snapshot/</url>
+        </snapshotRepository>
+        <repository> <!-- Enables uploading of the artifacts of this project to nexus-->
+            <id>nexus-release</id>
+            <url>http://localhost:8081/repository/nexus-release/</url>
+        </repository>
+    </distributionManagement>
 </project>
